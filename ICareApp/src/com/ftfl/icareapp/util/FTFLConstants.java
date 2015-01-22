@@ -18,7 +18,9 @@ public class FTFLConstants {
 	 public final static String PM = "PM";
 	 public final static String AM = "AM";
 	 public static final String MyPREFERENCES = "MyPrefs";
-	 public static final String KEY_PROFILE = "MyProfile";
+	 public static final String KEY_PROFILE = "Profile";
 	 public final static String EDIT_DIET = "Edit My Diet";
+	 public final static String SAVE = "Data Saved / Updated";
+	 public final static String EDIT_PROFILE = "Edit ICare Profile";
 	 
 }

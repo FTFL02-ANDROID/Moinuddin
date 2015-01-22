@@ -19,19 +19,21 @@ import android.widget.EditText;
 
 public class ViewProfileActivity extends Activity {
 
+	ArrayList<MyProfile> myProfile = null;
 	ArrayList<MyProfile> gSonList = null;
 	EditText etName = null, etEmail = null, etDob = null, etWeight = null,
 			etHeight = null, etEye = null, etDiseas = null;
-
-	SharedPreferences sPrefs;
-	Gson gSon;
+	MyProfile shuvo = null;
+	SharedPreferences sPrefs = null;
+	Gson gSon = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_viewprofile);
 
-		gSonList = new ArrayList<MyProfile>();
+		myProfile = new ArrayList<MyProfile>();
+		// gSonList = new ArrayList<Profile>();
 
 		sPrefs = getSharedPreferences(FTFLConstants.MyPREFERENCES,
 				Context.MODE_PRIVATE);

@@ -17,15 +17,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ProfileActivity extends Activity {
 
-	MyProfile myProfile = null;
+	ArrayList<MyProfile> myProfile = null;
 	ArrayList<MyProfile> gSonList = null;
 	EditText etName = null, etEmail = null, etDob = null, etWeight = null,
 			etHeight = null, etEye = null, etDiseas = null;
-
+	MyProfile shuvo = null;
 	SharedPreferences sPrefs = null;
 	Gson gSon = null;
 
@@ -33,6 +34,9 @@ public class ProfileActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
+
+		myProfile = new ArrayList<MyProfile>();
+		gSonList = new ArrayList<MyProfile>();
 
 		sPrefs = getSharedPreferences(FTFLConstants.MyPREFERENCES,
 				Context.MODE_PRIVATE);
@@ -65,6 +69,8 @@ public class ProfileActivity extends Activity {
 
 			Button saveBtn = (Button) findViewById(R.id.save);
 			saveBtn.setText(FTFLConstants.UPDATE);
+			TextView editTittle = (TextView) findViewById(R.id.tittle);
+			editTittle.setText(FTFLConstants.EDIT_PROFILE);
 
 		}
 
@@ -80,10 +86,10 @@ public class ProfileActivity extends Activity {
 		String eye = etEye.getText().toString();
 		String disease = etDiseas.getText().toString();
 
-		Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, FTFLConstants.SAVE, Toast.LENGTH_SHORT).show();
 
-		myProfile = new MyProfile(name, dob, height, weight, eye, disease,
-				email);
+		myProfile.add(shuvo = new MyProfile(name, dob, height, weight, eye,
+				disease, email));
 
 		// Store arraylist in sharedpreference
 		String nProfile = gSon.toJson(myProfile);
