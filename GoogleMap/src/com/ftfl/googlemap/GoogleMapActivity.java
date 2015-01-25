@@ -1,5 +1,16 @@
 package com.ftfl.googlemap;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -8,22 +19,13 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import android.app.Activity;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
-
 public class GoogleMapActivity extends Activity {
 
 	// Google Map
 	GoogleMap googleMap;
 	Location location;
 	LatLng currentPosition;
-	
+
 	float b = 0;
 
 	@Override
@@ -35,12 +37,26 @@ public class GoogleMapActivity extends Activity {
 			// Loading map
 			initilizeMap();
 
-			// Enabling MyLocation Layer of Google Map
-			googleMap.setMyLocationEnabled(true);
-
 			// Getting LocationManager object from System Service
 			// LOCATION_SERVICE
 			LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+			boolean enabledGPS = locationManager
+					.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+			// Check if enabled and if not send user to the GSP settings
+			// Better solution would be to display a dialog and suggesting to
+			// go to the settings
+			if (!enabledGPS) {
+				Toast.makeText(this, "GPS signal not found", Toast.LENGTH_LONG)
+						.show();
+				Intent intent = new Intent(
+						Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				startActivity(intent);
+			}
+
+			// Enabling MyLocation Layer of Google Map
+			googleMap.setMyLocationEnabled(true);
 
 			// Creating a criteria object to retrieve provider
 			Criteria criteria = new Criteria();
@@ -49,9 +65,8 @@ public class GoogleMapActivity extends Activity {
 			String provider = locationManager.getBestProvider(criteria, true);
 
 			// Getting Current Location
-			 location = locationManager
-					.getLastKnownLocation(provider);
-			
+			location = locationManager.getLastKnownLocation(provider);
+
 			if (location != null) {
 				// PLACE THE INITIAL MARKER
 				drawMarker(location);
@@ -61,19 +76,20 @@ public class GoogleMapActivity extends Activity {
 
 				@Override
 				public void onLocationChanged(Location arg0) {
-					// TODO Auto-generated method stub
+					// redraw the marker when get location update.
 					drawMarker(location);
 				}
 			};
-			
-			locationManager.requestLocationUpdates(provider, 1000*60*1, b,
-					(android.location.LocationListener) locationListener);
-			
-			// Showing the current location in Google Map
-	        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentPosition));
 
-	        // Zoom in the Google Map
-	        googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+			locationManager.requestLocationUpdates(provider, 1000 * 60 * 1, b,
+					(android.location.LocationListener) locationListener);
+
+			// Showing the current location in Google Map
+			googleMap
+					.moveCamera(CameraUpdateFactory.newLatLng(currentPosition));
+
+			// Zoom in the Google Map
+			googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -99,12 +115,12 @@ public class GoogleMapActivity extends Activity {
 
 	private void drawMarker(Location location) {
 		googleMap.clear();
-	    currentPosition = new LatLng(location.getLatitude(),
+		currentPosition = new LatLng(location.getLatitude(),
 				location.getLongitude());
 		googleMap.addMarker(new MarkerOptions()
 				.position(currentPosition)
 				.snippet(
-						"Lat:" + location.getLatitude() + "Lng:"
+						"Lat:" + location.getLatitude() + " Lng:"
 								+ location.getLongitude())
 				.icon(BitmapDescriptorFactory
 						.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
@@ -129,9 +145,23 @@ public class GoogleMapActivity extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		switch (item.getItemId()) {
+
+		case R.id.menu_setsetellite:
+			googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+			break;
+
+		case R.id.menu_sethybrid:
+			googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+			break;
+
+		case R.id.menu_showtraffic:
+			googleMap.setTrafficEnabled(true);
+			break;
+
+		case R.id.menu_setnormal:
+			googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
