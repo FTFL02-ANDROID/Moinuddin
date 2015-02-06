@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LocationDistance</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="reg">Register</string>
+    <string name="retv">Retrieve</string>
+    <string name="takePic">Take Photo</string>
+    <string name="lat">Latitude</string>
+    <string name="longt">Longitude</string>
+    <string name="remrk">Remarks</string>
+    <string name="save">Save</string>
+    <string name="dist">Distance</string>
+    
+
+</resources>
