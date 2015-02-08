@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EmergencyCallOnShake</string>
+    <string name="emergency">Emergency Call</string>
+    <string name="name">Name</string>
+    <string name="number">Phone Number</string>
+    <string name="save">Save Contact</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
