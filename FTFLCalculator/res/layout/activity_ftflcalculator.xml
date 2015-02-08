@@ -1,0 +1,185 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="30dp" >
+    
+
+  <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    
+      <EditText
+           android:id="@+id/editText1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           
+           android:layout_marginTop="32dp"
+           android:ems="10"
+           android:inputType="numberDecimal" >
+
+           <requestFocus />
+       </EditText>
+
+      <Button
+          android:id="@+id/button17"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:contentDescription="@string/clear"
+          android:text="@string/clear" />
+
+       </LinearLayout>
+ 
+  <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+       
+     <Button
+          android:id="@+id/button1"
+          android:layout_weight="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/one"
+          android:text="@string/one" />
+     <Button
+          android:id="@+id/button2"
+          android:layout_weight="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/two"
+          android:text="@string/two" />
+     <Button
+          android:id="@+id/button3"
+          android:layout_weight="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/three"
+          android:text="@string/three" />
+     <Button
+          android:id="@+id/button4"
+          android:layout_weight="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/plus"
+          android:text="@string/plus" />
+     </LinearLayout>
+  
+ <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+      <Button
+          android:id="@+id/button5"
+          android:layout_weight="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/four"
+          android:text="@string/four" />
+
+      <Button
+          android:id="@+id/button6"
+          android:layout_weight="1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:contentDescription="@string/five"
+          android:text="@string/five" />
+
+      <Button
+       android:id="@+id/button7"
+       android:layout_weight="1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:contentDescription="@string/six"
+       android:text="@string/six" />
+
+    <Button
+       android:id="@+id/button8"
+       android:layout_weight="1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:contentDescription="@string/minus"
+       android:text="@string/minus" />
+    </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/seven"
+        android:text="@string/seven" />
+    <Button
+        android:id="@+id/button10"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"  
+        android:contentDescription="@string/eight"
+        android:text="@string/eight" />
+
+     <Button
+        android:id="@+id/button11"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/nine"
+        android:text="@string/nine" />
+     <Button
+        android:id="@+id/button12"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:contentDescription="@string/multi"
+        android:text="@string/multi" />
+
+       </LinearLayout>
+       
+
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+       <Button
+           android:id="@+id/button13"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:contentDescription="@string/dot"
+           android:text="@string/dot" />
+
+       <Button
+         android:id="@+id/button14"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:contentDescription="@string/zero"
+         android:text="@string/zero" />
+
+       <Button
+         android:id="@+id/button15"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:contentDescription="@string/equal"
+         android:text="@string/equal" />
+
+       <Button
+         android:id="@+id/button16"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:contentDescription="@string/div"
+         android:text="@string/div" />
+       </LinearLayout>
+
+</LinearLayout>
