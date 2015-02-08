@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyMeetingPlaces</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="mtnplc">My Meeting Places</string>
+    <string name="reg">Register</string>
+    <string name="rvw">Review</string>
+    <string name="visit">My Visited Places</string>
+    <string name="home">Home</string>
+    <string name="meetPlc">Meeting Place</string>
+    <string name="place">Place</string>
+    <string name="takePic">Take Photo</string>
+    <string name="save">Save</string>
+    <string name="lat">Latitude</string>
+    <string name="longt">Longitude</string>
+    <string name="dist">Distance</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="curnlocation">Current Location</string>
+    
+    
+
+</resources>

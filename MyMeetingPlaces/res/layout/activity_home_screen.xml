@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FA9A"
+    android:orientation="vertical"
+    tools:context="com.ftfl.mymeetingplaces.HomeScreenActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:text="@string/mtnplc" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/textView1"
+        android:background="#000000" />
+
+    <Button
+        android:id="@+id/buttonReg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="90dp"
+        android:text="@string/reg"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/buttonRvw"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonReg"
+        android:layout_marginTop="-15dp"
+        android:text="@string/rvw"
+        android:textSize="30sp" />
+
+</RelativeLayout>
