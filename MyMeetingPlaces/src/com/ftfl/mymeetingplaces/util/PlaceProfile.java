@@ -9,12 +9,15 @@ public class PlaceProfile {
 	String mPhoto = "";
 	String mDate = "";
 	String mTime = "";
+	String mName = "";
+	String mNumber = "";
+	String mEmail = "";
 
 	public PlaceProfile() {
 	}
 
 	public PlaceProfile(Integer eId, Double eLatitude, Double eLongitude,
-			String ePlaceName, String ePhoto, String eDate, String eTime) {
+			String ePlaceName, String ePhoto, String eDate, String eTime, String eName, String eNumber, String eEmail) {
 		this.mId = eId;
 		this.mLatitude = eLatitude;
 		this.mLongitude = eLongitude;
@@ -22,16 +25,22 @@ public class PlaceProfile {
 		this.mPhoto = ePhoto;
 		this.mDate = eDate;
 		this.mTime = eTime;
+		this.mName = eName;
+		this.mNumber = eNumber;
+		this.mEmail = eEmail;
 	}
 
 	public PlaceProfile(Double eLatitude, Double eLongitude, String ePlaceName,
-			String ePhoto, String eDate, String eTime) {
+			String ePhoto, String eDate, String eTime, String eName, String eNumber, String eEmail) {
 		this.mLatitude = eLatitude;
 		this.mLongitude = eLongitude;
 		this.mPlaceName = ePlaceName;
 		this.mPhoto = ePhoto;
 		this.mDate = eDate;
 		this.mTime = eTime;
+		this.mName = eName;
+		this.mNumber = eNumber;
+		this.mEmail = eEmail;
 	}
 
 	public Integer getId() {
@@ -88,6 +97,30 @@ public class PlaceProfile {
 
 	public void setTime(String eTime) {
 		this.mTime = eTime;
+	}
+
+	public String getName() {
+		return mName;
+	}
+
+	public void setName(String mName) {
+		this.mName = mName;
+	}
+
+	public String getNumber() {
+		return mNumber;
+	}
+
+	public void setNumber(String mNumber) {
+		this.mNumber = mNumber;
+	}
+
+	public String getEmail() {
+		return mEmail;
+	}
+
+	public void setEmail(String mEmail) {
+		this.mEmail = mEmail;
 	}
 
 }

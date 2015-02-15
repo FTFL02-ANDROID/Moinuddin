@@ -16,6 +16,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ftfl.mymeetingplaces.database.SQDataSource;
@@ -31,12 +33,13 @@ import com.ftfl.mymeetingplaces.util.PlaceProfile;
 
 public class MeetingPlaceActivity extends Activity {
 
-	EditText etPlace = null, etLat = null, etLong = null;
+	EditText etPlace = null, etName = null, etNumber = null, etEmail = null;
+	TextView tvLat = null, tvLng = null;
 	Button mBtnPic = null, mBtnSave = null;
 	ImageView mImage = null;
 
 	String mLatitude = "", mLongitude = "", mPlaceName = "", mDate = "",
-			mTime = "";
+			mTime = "", mName = "", mNumber = "", mEmail = "";
 	double lat = 0.00, longt = 0.00;
 
 	PlaceProfile mPlcProfile = null;
@@ -56,8 +59,11 @@ public class MeetingPlaceActivity extends Activity {
 		mBtnSave = (Button) findViewById(R.id.bttnSave);
 
 		etPlace = (EditText) findViewById(R.id.etPlace);
-		etLat = (EditText) findViewById(R.id.etLat);
-		etLong = (EditText) findViewById(R.id.etLongt);
+		etName = (EditText) findViewById(R.id.etName);
+		etNumber = (EditText) findViewById(R.id.etNumber);
+		etEmail = (EditText) findViewById(R.id.etEmail);
+		tvLat = (TextView) findViewById(R.id.tvLatt);
+		tvLng = (TextView) findViewById(R.id.tvLng);
 
 		DateFormat dateFormat = new SimpleDateFormat("dd/M/yyyy",
 				Locale.getDefault());
@@ -113,11 +119,8 @@ public class MeetingPlaceActivity extends Activity {
 		mLatitude = String.valueOf(lat);
 		mLongitude = String.valueOf(longt);
 
-		etLat.setText(mLatitude);
-		etLat.setFocusable(false);
-
-		etLong.setText(mLongitude);
-		etLong.setFocusable(false);
+		tvLat.setText("Latitude:  " + mLatitude);
+		tvLng.setText("Longitude: " + mLongitude);
 
 		mSqlSource = new SQDataSource(this);
 
@@ -127,13 +130,16 @@ public class MeetingPlaceActivity extends Activity {
 			public void onClick(View v) {
 
 				mPlaceName = etPlace.getText().toString();
+				mName = etName.getText().toString();
+				mNumber = etNumber.getText().toString();
+				mEmail = etEmail.getText().toString();
 
 				mPlcProfile = new PlaceProfile(lat, longt, mPlaceName,
-						mCurrentPhotoPath, mDate, mTime);
+						mCurrentPhotoPath, mDate, mTime, mName, mNumber, mEmail);
 
 				long inserted = mSqlSource.insert(mPlcProfile);
 
-				if (inserted >= 0) {
+				if ((isValidEmail(mEmail)) && inserted >= 0) {
 					Toast.makeText(getApplicationContext(),
 							FTFLConstants.INSERTED, Toast.LENGTH_LONG).show();
 					Intent i = new Intent(getApplicationContext(),
@@ -141,12 +147,23 @@ public class MeetingPlaceActivity extends Activity {
 					startActivity(i);
 					finish();
 				} else {
-					Toast.makeText(getApplicationContext(),
-							FTFLConstants.INSERT_PROBLEM, Toast.LENGTH_LONG)
-							.show();
+					Toast.makeText(
+							getApplicationContext(),
+							FTFLConstants.INSERT_PROBLEM
+									+ " or wrong email address.",
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		});
+	}
+
+	public final static boolean isValidEmail(CharSequence viewEmail) {
+		if (TextUtils.isEmpty(viewEmail)) {
+			return false;
+		} else {
+			return android.util.Patterns.EMAIL_ADDRESS.matcher(viewEmail)
+					.matches();
+		}
 	}
 
 	private boolean isDeviceSupportCamera() {

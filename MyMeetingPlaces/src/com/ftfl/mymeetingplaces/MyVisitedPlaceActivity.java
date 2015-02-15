@@ -9,6 +9,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,6 +31,9 @@ public class MyVisitedPlaceActivity extends Activity {
 	Button mBtnHome = null;
 	TextView tvCLocation = null;
 	double lat = 0.00, longt = 0.00;
+
+	TextView textId = null;
+	int id_To_Update = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,30 @@ public class MyVisitedPlaceActivity extends Activity {
 				mLocation);
 		// adding it to the list view.
 		mListView.setAdapter(arrayAdapter);
+
+		mListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+
+				// arg1 is used to get the view. dbID is declared in the
+				// listrow, which is hidden/gone
+				textId = (TextView) arg1.findViewById(R.id.dbID);
+				String proID = textId.getText().toString();
+				// in order to use for delete and edit in DataBase
+				id_To_Update = Integer.parseInt(proID);
+
+				Bundle dataBundle = new Bundle();
+				dataBundle.putInt("id", id_To_Update); // "id" is the
+														// key...
+				Intent intent = new Intent(MyVisitedPlaceActivity.this,
+						DisplayInfoActivity.class);
+				intent.putExtras(dataBundle);
+				startActivity(intent);
+
+			}
+		});
 
 		mBtnHome = (Button) findViewById(R.id.btnHome);
 		mBtnHome.setOnClickListener(new OnClickListener() {

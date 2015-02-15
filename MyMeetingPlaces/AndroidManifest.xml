@@ -13,6 +13,8 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
     
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -28,7 +30,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".HomeScreenActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -38,8 +40,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".HomeScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            
+        </activity>
+        <activity
             android:name=".MeetingPlaceActivity"
             android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait" >
             
@@ -50,6 +59,23 @@
             android:screenOrientation="portrait" >
             
         </activity>
+        <activity
+            android:name=".DisplayInfoActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            
+        </activity>
+        
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Don't forget to declare the bellow activity -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        
     </application>
 
 </manifest>

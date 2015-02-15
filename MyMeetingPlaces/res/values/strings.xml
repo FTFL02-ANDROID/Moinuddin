@@ -19,6 +19,14 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="curnlocation">Current Location</string>
+    <string name="name">Name</string>
+    <string name="number">Number</string>
+    <string name="email">E-mail</string>
+    <string name="detail">Detail View</string>
+    <string name="datetime">Date Time</string>
+    <string name="latlng">LAT LNG</string>
+    <string name="edit">Edit</string>
+    <string name="del">Delete</string>
     
     
 

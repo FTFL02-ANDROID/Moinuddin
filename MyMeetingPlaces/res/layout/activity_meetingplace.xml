@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d6d0c3"
+    android:background="#fae1b6"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -14,84 +14,149 @@
             android:id="@+id/plcTittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#00aff0"
             android:gravity="center"
             android:text="@string/meetPlc"
-            android:textColor="#000000"
+            android:textColor="#2c50a2"
             android:textSize="30sp" />
+
         <View
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:background="#000000" />
-
-        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="2dp"
-            android:text="@string/place"
-            android:textColor="#1a237e"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/etPlace"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10" >
-        </EditText>
+            android:layout_height="2dp"
+            android:background="#000000" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp" >
+            android:layout_marginTop="30dp"
+            android:background="#000000"
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/tvLat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="2dp"
+                android:text="@string/place"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPlace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/tvLatt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:paddingLeft="2dp"
                 android:text="@string/lat"
-                android:textColor="#1a237e"
+                android:textColor="#ffffff"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/etLat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="20"
-                android:inputType="numberDecimal"
-                android:textColor="#1a237e" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp" >
-
             <TextView
-                android:id="@+id/tvLongt"
+                android:id="@+id/tvLng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:paddingLeft="2dp"
                 android:text="@string/longt"
-                android:textColor="#1a237e"
+                android:textColor="#ffffff"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/etLongt"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="20"
-                android:inputType="numberDecimal"
-                android:textColor="#1a237e" />
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.70"
+                    android:paddingLeft="2dp"
+                    android:text="@string/name"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.30"
+                    android:ems="20"
+                    android:inputType="textPersonName"
+                    android:textColor="#1a237e" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tvNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.70"
+                    android:paddingLeft="2dp"
+                    android:text="@string/number"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/etNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.30"
+                    android:ems="20"
+                    android:inputType="phone"
+                    android:textColor="#1a237e" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.70"
+                    android:paddingLeft="2dp"
+                    android:text="@string/email"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.30"
+                    android:ems="20"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#1a237e" />
+            </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#2d28b4" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,11 +170,17 @@
             <ImageView
                 android:id="@+id/imgPreview"
                 android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:contentDescription="@string/hello_world"
                 android:src="@drawable/ic_launcher" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="#2d28b4" />
 
             <!-- Capture picture button -->
 
@@ -118,13 +189,15 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/takePic" />
+                android:layout_marginTop="10dp"
+                android:text="@string/takePic"
+                android:drawableLeft="@drawable/iconcamera" />
         </LinearLayout>
-        
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#000000" />
+            android:background="#2d28b4" />
 
         <Button
             android:id="@+id/bttnSave"
@@ -132,7 +205,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:text="@string/save" />
+            android:text="@string/save"
+            android:drawableLeft="@drawable/iconsave" />
     </LinearLayout>
 
 </ScrollView>

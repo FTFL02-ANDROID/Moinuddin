@@ -49,6 +49,9 @@ public class SQDataSource {
 		values.put(SQLiteHelper.COLUMNL_DATE_FIELD, eLocation.getDate());
 		values.put(SQLiteHelper.COLUMNL_TIME_FIELD, eLocation.getTime());
 		values.put(SQLiteHelper.COLUMNL_PHOTO_FIELD, eLocation.getPhoto());
+		values.put(SQLiteHelper.COLUMNL_NAME_FIELD, eLocation.getName());
+		values.put(SQLiteHelper.COLUMNL_NUMBER_FIELD, eLocation.getNumber());
+		values.put(SQLiteHelper.COLUMNL_EMAIL_FIELD, eLocation.getEmail());
 
 		long inserted = mLocationDatabase.insert(SQLiteHelper.TABLE_NAME, null,
 				values);
@@ -59,7 +62,7 @@ public class SQDataSource {
 	public Cursor getData(int id) {
 		this.open();
 		Cursor cursor = mLocationDatabase.rawQuery(
-				"select * from places where _id=" + id + "", null);
+				"select * from meeting_places where _id=" + id + "", null);
 		return cursor;
 	}
 
@@ -74,6 +77,9 @@ public class SQDataSource {
 		values.put(SQLiteHelper.COLUMNL_DATE_FIELD, eLocation.getDate());
 		values.put(SQLiteHelper.COLUMNL_TIME_FIELD, eLocation.getTime());
 		values.put(SQLiteHelper.COLUMNL_PHOTO_FIELD, eLocation.getPhoto());
+		values.put(SQLiteHelper.COLUMNL_NAME_FIELD, eLocation.getName());
+		values.put(SQLiteHelper.COLUMNL_NUMBER_FIELD, eLocation.getNumber());
+		values.put(SQLiteHelper.COLUMNL_EMAIL_FIELD, eLocation.getEmail());
 
 		long updated = 0;
 
@@ -131,12 +137,21 @@ public class SQDataSource {
 							.getColumnIndex(SQLiteHelper.COLUMNL_TIME_FIELD));
 					String imagePath = cursor.getString(cursor
 							.getColumnIndex(SQLiteHelper.COLUMNL_PHOTO_FIELD));
+					String name = cursor.getString(cursor
+							.getColumnIndex(SQLiteHelper.COLUMNL_NAME_FIELD));
+
+					String phnNumber = cursor.getString(cursor
+							.getColumnIndex(SQLiteHelper.COLUMNL_NUMBER_FIELD));
+
+					String email = cursor.getString(cursor
+							.getColumnIndex(SQLiteHelper.COLUMNL_EMAIL_FIELD));
+
 
 					double lat = Double.parseDouble(latitude);
 					double lont = Double.parseDouble(longitude);
 
 					PlaceProfile sComplex = new PlaceProfile(id, lat,
-							lont, place, imagePath, date, time);
+							lont, place, imagePath, date, time, name, phnNumber, email);
 					allInfo.add(sComplex);
 
 				} while (cursor.moveToNext());
