@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ftfl.shuvo.icarefinal.ICareActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="1"
+        android:title="@string/action_settings"
+        android:icon="@drawable/add_icon"
+        app:showAsAction="always">
+
+        <!-- "Add" submenu -->
+        <menu>
+            <item
+                android:id="@+id/add_pro"
+                android:title="@string/addpro"/>
+            <item
+                android:id="@+id/add_diet"
+                android:title="@string/addiet"/>
+            <item
+                android:id="@+id/add_doc"
+                android:title="@string/addoc"/>
+            <item
+                android:id="@+id/add_mh"
+                android:title="@string/presp"/>
+            <item
+                android:id="@+id/add_vac"
+                android:title="@string/addvac"/>
+            <item
+                android:id="@+id/add_note"
+                android:title="@string/addnot"/>
+        </menu>
+    </item>
+    
+</menu>
